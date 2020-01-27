@@ -9,11 +9,8 @@ void p()
 		printf("(%p)\n");
 		exit(1);
 	}
-	else
-	{
-		puts(str);
-		strdup(str);
-	}
+	puts(str);
+	strdup(str);
 }
 
 int main()
