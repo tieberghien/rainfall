@@ -22,5 +22,5 @@ int main(int ac, char **av)
 	N n2 = new N(6);
 
 	n1.setAnnotation(av[1]);
-
+	return ();
 }
