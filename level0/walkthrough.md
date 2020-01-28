@@ -12,8 +12,8 @@ Let's have a look at `level0`, shall we?
 ```
 
 No need to be a C expert to understand what's going on here... Very simply, the programme excepts a parameter, but doesn't
-check whether it exists or not. If it does, the `main` function calls <atoi> on the argument. If the argument equals 0x1a7 or
-423, it prevents the programme from jumping straight to the end of the `main` function. It'll instead call <execv> and spawn
+check whether it exists or not. If it does, the `main` function calls `atoi` on the argument. If the argument equals 0x1a7 or
+423, it prevents the programme from jumping straight to the end of the `main` function. It'll instead call `execv` and spawn
 a shell!
 
 ```
