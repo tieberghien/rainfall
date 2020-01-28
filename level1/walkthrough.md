@@ -17,9 +17,9 @@ Indeed, there's not much more to it.
        0x08048496 <+22>:	ret
     End of assembler dump.
 ```
-Thankfully, there's another function which isn't called anywhere in <main>, <run>. This function is interesting, as it makes a syscall and spawns a shell! However, how do we get to execute a function that's not called at all? This is when we first introduce the notion of "payload". An exploit is a piece of code written to take advantage of a particular vulnerability. A payload is a piece of code to be executed through said exploit. The exploit in our case is the well-known bufferover flow. Therefore, we want to write a payload which'll exploit this vulnerabilty. A buffer of size 76 is instantiated at the beginning of the programme. Giviing the programme a string bigger than said size will result in a segfault.
+Thankfully, there's another function which isn't called anywhere in `main`-that is `run`. This function is interesting, as it makes a syscall and spawns a shell! However, how do we get to execute a function that's not called at all? This is when we first introduce the notion of "payload". An exploit is a piece of code written to take advantage of a particular vulnerability. A payload is a piece of code to be executed through said exploit. The exploit in our case is the well-known bufferover flow. Therefore, we want to write a payload which'll exploit this vulnerabilty. A buffer of size 76 is instantiated at the beginning of the programme. Giviing the programme a string bigger than said size will result in a segfault.
 
-The address of <run> is `0x08048444`. 
+The address of `run` is `0x08048444`. 
 
 ```
     level1@RainFall:~$ python -c 'print "a"*76 + "\x44\x84\x04\x08"' > /tmp/payload
