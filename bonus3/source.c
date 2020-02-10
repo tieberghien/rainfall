@@ -1,7 +1,8 @@
 int main(int ac, char **av)
 {
+	char str[160];
 	FILE *f;
 
-	f = fopen("/home/user/end/.pass", "r");
-	return ;
+	if ((f = fopen("/home/user/end/.pass", "r")) == -1)
+		return ;
 }
