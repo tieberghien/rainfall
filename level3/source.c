@@ -1,12 +1,11 @@
-// global i?
-int i = 0
-
 void v()
 {
 	char *str;
+	int i;
 
-	str = fgets(str, 512, stdin);
+	fgets(str, 512, stdin);
 	printf(str);
+	i = m();
 	if (i == 64)
 	{
 		fwrite(1, "Wait what?!", 12);
